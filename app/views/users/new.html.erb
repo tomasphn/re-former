@@ -1,3 +1,11 @@
+<% unless @user.errors.empty? %>
+  <p>User not created because of <%= @user.errors.count %> errors </p>
+
+  <% @user.errors.full_messages.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+
 <%= form_with model: @user do |form| %>
   <%= form.label :username %>
   <%= form.text_field :username %>
